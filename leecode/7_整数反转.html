@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <script>
+        let x = 1534236469;
+        function reverse(x) {
+            if (x < 0) {
+               let y= parseInt("-" + parseInt(x.toString().split("").reverse().join("")))
+               if(y>(Math.pow(2,31)-1)||y<Math.pow(-2,31)){
+                   return 0
+               }else{
+                   return y
+               }
+            } else {
+                let z= parseInt(x.toString().split("").reverse().join(""))
+                if(z>(Math.pow(2,31)-1)||z<Math.pow(-2,31)){
+                   return 0
+               }else{
+                   return z
+               }
+            }
+        }
+        console.log(reverse(x))
+        // if(number<0){
+        //    return parseInt("-"+parseInt(number.toString().split("").reverse().join("")))
+        // }else{
+        //     return parseInt(number.toString().split("").reverse().join(""))
+        // }
+    </script>
 </body>
+
 </html>
