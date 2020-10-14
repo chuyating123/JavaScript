@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=["","","abc","def","ghi","jkl","mnop","qrst","uyw","xyz"]
+        function letterlombinations(str){
+            let num=str.split("")
+            let code=[]
+            num.forEach((item)=>{
+                code.push(arr[item])
+            })
+            // console.log(code)
+            return fn(code)
+            console.log(fn(code))
+        }
+        function fn(arr){
+           let res=[]
+          for(let i=0;i<arr[0].length;i++){
+              for(let j=0;j<arr[1].length;j++){
+              res.push(arr[0][i]+arr[1][j])
+              }
+          }
+          arr.splice(0,2,res)
+          if(arr.length>1){
+              fn(arr)
+          }
+          return arr[0]
+        }
+        console.log(letterlombinations("234"))
+    </script>
+</body>
+</html>

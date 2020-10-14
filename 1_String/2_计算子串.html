@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str="00110011"
+        function fn(substr){
+            // console.log(substr)
+         let arr=substr.match(/^(0+|1+)/g)
+         let i=arr[0]
+         let j=(i[0]^1).toString().repeat(i.length)
+         let r=new RegExp(`^(${i}${j})`)
+        //  console.log(r)
+         if(r.test(substr)){
+         return RegExp.$1 
+         }else{
+             return ""
+         }
+        }
+        function SubString(s){
+            let res=[]
+            for(let i=0;i<s.length-1;i++){
+                let r=fn(s.slice(i))
+                if(r){
+                    res.push(r)
+                }
+            }
+            return res.length
+        }
+        console.log(SubString(str))
+    </script>
+</body>
+</html>
