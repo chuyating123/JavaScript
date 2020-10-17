@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr1=['I','V','X','L','C','D','M']
+        let arr2=[1,5,10,50,100,500,1000]
+        function fn(str){
+         if(str=='IV'){
+             return 4
+         }else if(str=='IX'){
+             return 9
+         }else if(str=='XL'){
+             return 40
+         }else if(str=='XC'){
+             return 90
+         }else if(str=='CD'){
+             return 400
+         }else if(str=='CM'){
+             return 900
+         }
+         else{
+             let arr3=str.split("")
+             let sum=0
+             for(let i=0;i<arr3.length;i++){
+                 for(let j=0;j<arr1.length;j++){
+                    if(arr3[i]==arr1[j]){
+                    if(arr3[i]=='I'){
+                           if(arr3[i+1]=='V'){
+                               sum+=4
+                               i++
+                               console.log(i,sum)
+                           }else if(arr3[i+1]=='X'){
+                               sum+=9
+                               i++
+                               console.log(i,sum)
+                           }else{
+                            sum+=arr2[j]
+                            console.log(sum)
+                           }
+                           break
+                       }else if(arr3[i]=='X'){
+                           if(arr3[i+1]=='L'){
+                               sum+=40
+                               i++
+                               console.log(i,sum)
+                           }else if(arr3[i+1]=='C'){
+                               sum+=90
+                               i++
+                               console.log(i,sum)
+                           }else{
+                            sum+=arr2[j]
+                            console.log(sum)
+                           }
+                           break
+                       }else if(arr3[i]=='C'){
+                           if(arr3[i+1]=='D'){
+                               sum+=400
+                               i++
+                               console.log(i,sum)
+                           }else if(arr3[i+1]=='M'){
+                               sum+=900
+                               i++
+                               console.log(i,sum)
+                           }else{
+                            sum+=arr2[j]
+                            console.log(sum)
+                           }
+                           break
+                       }else{
+                           sum+=arr2[j]
+                           console.log(sum)
+                           break
+                       }
+                 }
+                 }
+             }
+             return sum
+         }
+        }
+        console.log(fn('CMXCIX'))
+    </script>
+</body>
+</html>
