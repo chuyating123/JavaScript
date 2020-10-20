@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nums=[3,2,2,2,3,2,3,2]
+        function removeElement(nums,val){
+            // var reg=new RegExp(val.toString(),"g")
+            // return nums.join("").replace(reg,"").split("")
+            for(let i=0;i<nums.length;i++){
+                if(nums[i]==val){
+                    if(i==nums.length-1){
+                        nums.pop(nums[i])
+                    }else{
+                        for(let j=i;j<nums.length;j++){
+                            nums[j]=nums[j+1]
+                        }
+                        nums.pop(nums[nums.length-1])
+                        i--
+                    }
+                }
+            }
+            return nums.length
+        }
+        console.log(removeElement(nums,2))
+    </script>
+</body>
+</html>

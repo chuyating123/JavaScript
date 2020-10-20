@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let strs = ["ab", "ac"]
+        let min=0
+        let l=0,n=0
+        function longestCommonPrefix(strs) {
+            let arr = []
+            if (strs.length == 0) {
+                return ""
+            } else if (strs.length == 1) {
+                return strs.join("")
+            } else {
+            for(let i=0;i<strs.length-1;i++){
+                // console.log(strs[i].length)
+                if(strs[i].length<strs[i+1].length){
+                    min=strs[i].length
+                }
+            }
+            for(let j=0;j<min;j++){
+            for(let i=0;i<strs.length;i++){
+                if(strs[i][j]!=strs[i+1][j]){
+                    l=j
+                    break
+                }
+            }
+            n=i
+            }
+            if(l==0){
+                if(n==strs.length-1){
+                    return l+1
+                }else{
+                    return ""
+                }
+            }else{
+                return l+1
+            }
+            }
+        }
+        console.log(longestCommonPrefix(strs))
+    </script>
+</body>
+
+</html>
