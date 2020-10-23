@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let height = [2,3,4,5,18,17,6]
+        function maxArea(height) {
+            let area = []
+            let max = 0
+            if (!height || !height.length) return 0
+            for (let i = 0; i < height.length; i++) {
+                for (let j = i + 1; j < height.length ; j++) {
+                    if (height[i] < height[j]) {
+                        // area.push((height[i] * (j-i)))
+                        area.push((height[i] * (j-i)))
+                    } else {
+                        // area.push((height[j] * (j-i)))
+                        area.push((height[j] * (j-i)))
+                    }
+                }
+            }
+            for (let k= 0; k < area.length; k++) {
+                console.log(area[k])
+                // if (max < area[k]) {
+                //     max = area[k]
+                // }
+            }
+            // return max
+        }
+        console.log(maxArea(height))
+    </script>
+</body>
+
+<!-- </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let height = [1,8,6,2,5,4,8,3,7]
+        function maxArea(height) {   
+            let max = 0
+            let temp = max
+            for (let i = 0; i < height.length; i++) {
+                for (let j = i + 1; j < height.length ; j++) {
+                    if (height[i] < height[j]) {
+                       temp=height[i] * (j-i)
+                    } else {
+                       temp=height[j] * (j-i)
+                    }
+                    if(temp>max)
+                       max=temp
+                }
+            }
+            
+            return max
+        }
+        console.log(maxArea(height))
+    </script>
+</body>
+
+</html> -->

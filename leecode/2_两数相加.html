@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function ListNode(val, next) {
+            this.val = (val === undefined ? 0 : val)
+            this.next = (next === undefined ? null : next)
+        }
+        function addTwoNumbers(l1, l2) {
+            let index=0
+            let l3 = new ListNode();
+            let temp = l3
+            while (l1 != null || l2 != null || index != 0) {  //这里加上index != 0 是为了解决当  l1 = {5},l2={5}的特殊情况。此时l1、l2都为null ,但是index = 1，需要进位。
+                let l1val = l1 != null ? l1.val : 0;  //长度不一致时的情况。
+                let l2val = l2 != null ? l2.val : 0;
+                let add = l1val + l2val + index;
+                if (add < 10) {
+                    temp.next = new ListNode(add);
+                    index = 0;
+                }
+                else {
+                    temp.next = new ListNode(add % 10);
+                    index = 1;
+                }
+                temp = temp.next;
+                if (l1 != null) l1 = l1.next;
+                if (l2 != null) l2 = l2.next;
+                console.log(temp.val)
+            }
+            //     while(temp1!=null && temp2!=null){
+            //             temp1.val+=temp2.val
+            //             temp2=temp2.next
+            //             temp1=temp1.next
+            //     }
+            //     let temp3=l1
+            //   while(temp3!=null){
+            //       console.log(temp3.val)
+            //   }
+        }
+        var l1 = new ListNode();
+        var l2 = new ListNode();
+        // l1.append(1)
+        // l1.append(3)
+        // l2.append(2)
+        // l2.append(1)
+        // console.log(addTwoNumbers(l1, l2).toString())
+        // console.log(l1.toString())
+    </script>
+</body>
+
+</html>
