@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         let j=0
+        function countAndSay(s){
+                // let s=n.toString()
+                let arr=[]
+                for(let i=0;i<s.length;i++){
+                    j++
+                    if(s[i]!=s[i+1]){
+                        arr.push(j,s[i])
+                        j=0
+                    }
+                }
+                return arr.join("")
+        }
+        function fn(n){
+            if(n==1){
+                // let s=n.toString()
+               return "1"
+            }else{
+               return countAndSay(fn(n-1))
+            }
+        }
+        console.log(fn(6))
+        // console.log(countAndSay("1"))
+    </script>
+</body>
+</html>
