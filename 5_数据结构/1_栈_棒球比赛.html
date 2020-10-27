@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calPoints(ops){
+            let res=[]
+            let pre=0
+            let pre1=0
+            let pre2=0
+            ops.forEach(item=>{
+                switch(item){
+                    case "C":
+                    if(res.length>0){
+                        res.pop()
+                    }
+                    break
+                    case "D":
+                    if(res.length>0){
+                       let pre=res.pop()
+                       res.push(pre,pre*2)
+                    }
+                    break
+                    case "+":
+                    if(res.length>0){
+                       let pre1=res.pop()
+                       let pre2=res.pop()
+                       res.push(pre2,pre1,pre1+pre2)
+                    }
+                    break
+                    default:
+                    res.push(item*1)//将字符串转化成数字
+                }
+            })
+           return res.reduce((total,num)=>total+num)
+        }
+        console.log(calPoints(["5","2","C","D","+"]))
+    </script>
+</body>
+</html>
