@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 第一种方法
+        // function findKthLargest(nums, k){
+        //    nums.sort((a,b)=>b-a)
+        //    return nums[k-1]
+        // }
+        function findKthLargest(nums, k){
+            for(let i=nums.length-1;i>=nums.length-k;i--){
+                for(j=0;j<=i;j++){
+                    if(nums[j]>nums[j+1]){
+                        [nums[j],nums[j+1]]=[nums[j+1],nums[j]]
+                    }
+                }
+            }
+            return nums[nums.length-k]
+        }
+        console.log(findKthLargest([3,2,3,1,2,4,5,5,6],4))
+    </script>
+</body>
+</html>

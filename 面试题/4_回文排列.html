@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function canPermutePalindrome(s) {
+            let count = 0
+            for (let i = 0; i < s.length; i++) {
+                if (((s.split(s.charAt(i))).length - 1) % 2 != 0) {
+                    s = s.replace(s.charAt(i), "")
+                    count++;
+                    i--
+                }
+            }
+            console.log(count)
+            if (count > 1) {
+                return false
+            } else {
+                return true
+            }
+        }
+        console.log(canPermutePalindrome("tactcoa"))
+    </script>
+</body>
+
+</html>

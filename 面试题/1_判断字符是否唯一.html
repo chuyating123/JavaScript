@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isUnique(astr) {
+            for (let j = 0; j < astr.length; j++) {
+                for (let i = j+1; i < astr.length; i++) {
+                    if (astr.substr(j, 1) == astr.substr(i, 1)) {
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+        console.log(isUnique('lehgi'))
+    </script>
+</body>
+
+</html>

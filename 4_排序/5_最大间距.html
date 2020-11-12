@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 第一种方法
+        // function maximumGap(nums){
+        //     let max=0
+        //     nums.sort((a,b)=>a-b)
+        //     if(nums.length<2){
+        //         return 0
+        //     }
+        //     for(let i=0;i<nums.length;i++){
+        //         if(nums[i+1]-nums[i]>max){
+        //             max=nums[i+1]-nums[i]
+        //         }
+        //     }
+        //     return max
+        // }
+
+
+        // 第二种方法
+        function maximumGap(nums){
+            let max=0
+            if(nums.length<2){
+                return 0
+            }
+            for(let i=nums.length-1;i>=0;i--){
+                for(let j=0;j<=i;j++){
+                    if(nums[j]>nums[j+1]){
+                        [nums[j],nums[j+1]]=[[nums[j+1],nums[j]]]
+                    }
+                }
+                if(i<nums.length-1){
+                    if(nums[i+1]-nums[i]>max){
+                        max=nums[i+1]-nums[i]
+                    }
+                }
+            }
+            return max
+        }
+        console.log(maximumGap([3,6,9,1]))
+    </script>
+</body>
+</html>

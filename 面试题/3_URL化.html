@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function replaceSpaces(S, length) {
+            S = S.substr(0, length)
+            S = S.replace(new RegExp(' ', 'g'), "%20")
+            return S
+        }
+        console.log(replaceSpaces("               ", 5))
+    </script>
+</body>
+
+</html>
