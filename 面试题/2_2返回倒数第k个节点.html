@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 4, 5]
+        class Node {
+            constructor(val) {
+                this.val = val
+                this.next = null
+            }
+        }
+        class NodeList {
+            constructor(arr) {
+                this.head = new Node(arr[0])
+                let temp = this.head
+                for (let i = 1; i < arr.length; i++) {
+                    temp.next = new Node(arr[i])
+                    temp = temp.next
+                }
+                return this.head
+            }
+        }
+        function kthToLast(head, k) {
+            // let t1 = head.next, t2 = head
+            // while (t1.next != null) {
+            //     t1 = t1.next
+            //     t2 = t2.next
+            // }
+            // h=t1
+            // while(t2!=head){
+            //     t1.next=t2
+            //     t1=t1.next
+            //     t2=t2.next
+            // }
+            // t2.next=null
+            // for(let i=0;i<k;i++){
+
+            // }
+            // head=h
+            // let t=head
+            // while(t){
+            //     console.log(t.val)
+            //     t=t.next
+            // }
+            let t1 = head, t2 = head
+            let count = 0
+            while (t1) {
+                count++
+                t1 = t1.next
+            }
+            if (count > k) {
+                for (let i = 0; i < count - k; i++) {
+                    t2 = t2.next
+                }
+            }
+            return t2.val
+        }
+        let l = new NodeList(arr)
+        console.log(kthToLast(l, 6))
+    </script>
+</body>
+
+</html>

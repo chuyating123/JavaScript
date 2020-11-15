@@ -18,14 +18,20 @@
             constructor(arr){
                 this.head=new Node(arr[0])
                 let temp=this.head
-                for(let i=0;i<arr.length;i++){
-                   temp=new Node(arr[i])
+                for(let i=1;i<arr.length;i++){
+                   temp.next=new Node(arr[i])
                    temp=temp.next
                 }
                 return this.head
                 // 如果返回的是基本数据类型，当实例化的时候，获得的就是nodelist类型的对象，如果是复杂数据类型（对象），实例化获得的就是返回那个对象
                 // 当前返回this.head，就是该对象
             }
+        }
+        let nl=new NodeList([5,3,2,6,4,1])
+        console.log(nl)
+        while(nl){
+            console.log(nl.val)
+            nl=nl.next
         }
     </script>
 </body>

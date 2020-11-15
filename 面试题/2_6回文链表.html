@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=[1,2,2,1]
+         class Node {
+            constructor(val) {
+                this.val = val
+                this.next = null
+            }
+        }
+        class NodeList {
+            constructor(arr) {
+                this.head = new Node(arr[0])
+                let temp = this.head
+                for (let i = 1; i < arr.length; i++) {
+                    temp.next = new Node(arr[i])
+                    temp = temp.next
+                }
+                return this.head
+            }
+        }
+        function isPalindrome(head){
+            let arr=[]
+            let t=head
+            while(t){
+                arr.push(t.val)
+                t=t.next
+            }
+            if(arr.join("")==arr.reverse().join("")){
+                return true
+            }else{
+                return false
+            }
+        }
+        let l=new NodeList(a)
+        console.log(isPalindrome(l))
+    </script>
+</body>
+</html>

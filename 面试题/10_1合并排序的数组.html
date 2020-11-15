@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        A=[1,5,2,0,0,0]
+        B=[3,5,7]
+        function merge(A, m, B, n) {
+            A.splice(m);
+            B = B.splice(0, n);
+            for (let i = 0; i < B.length; i++) {
+                A.push(B[i]);
+            }
+            return A.sort((a, b) => a - b);
+        }
+        console.log(merge(A,3,B,3))
+    </script>
+
+</body>
+
+</html>
