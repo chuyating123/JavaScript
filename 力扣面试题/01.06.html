@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var compressString=function(S){
+        //     let obj={}
+        //     for(var i=0;i<S.length;i++){
+        //         key=S[i]
+        //         if(obj[key]){
+        //            obj[key]++ 
+        //         }else{
+        //             obj[key]=1
+        //         }
+        //     }
+        //     let arr=[]
+        //     for(let key in obj){
+        //     arr.push(key)
+        //     arr.push(obj[key])
+        //     }
+        //     let str=arr.join("")
+        //     if(str.length>S.length){
+        //         return S
+        //     }else{
+        //         return str
+        //     }
+        // }
+        function compressString(S){
+            let arr=[]
+            for(var i=0;i<S.length;i++){
+                for(var j=i+1;j<=S.length;j++){
+                    if(S[i]!=S[j]){
+                        arr.push(S[i])
+                        arr.push(j-i)
+                        i=j-1
+                        break
+                    }
+                }
+            }
+            let str=arr.join("")
+            if(S.length>str.length){
+              return str
+            }else{
+                return S
+            }
+        }
+        console.log(compressString("abdc"))
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var oneEditAway=function(first,second){
+          if(Math.abs(first.length-second.length)>1){
+             return false
+          }else if(Math.abs(first.length-second.length)==1){
+            let cnt = 1;
+            let count = 0; 
+            if(first.length<second.length){
+                    cnt = 2;
+            }
+            for(var i = 0,j=0;i<first.length,j<second.length;i++,j++){
+                if(first[i]!=second[j]){
+                    if(cnt == 1){
+                        j--;
+                    }else{
+                        i--;
+                    }
+                    count++;
+                }
+                if(count>1){
+                    return false;
+                }
+            }
+            return true;
+
+          }else if(Math.abs(first.length-second.length)==0){
+              if(first==second){
+                  return true
+              }else{
+                  let count=0
+                  for(var i=0;i<first.length;i++){
+                      if(first[i]!=second[i]){
+                          count++
+                      }
+                  }
+                  if(count>1){
+                      return false
+                  }else{
+                      return true
+                  }
+              }
+          }
+        }
+        let first="islander",second="slander"
+        console.log(oneEditAway(first,second))
+    </script>
+</body>
+</html>
