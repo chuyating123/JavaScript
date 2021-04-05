@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Node {
+            constructor(val) {
+                this.val = val,
+                    this.next = undefined
+            }
+        }
+        class NodeList {
+            constructor(arr) {
+                this.head = new Node(arr[0])
+                let temp = this.head
+                for (var i = 1; i < arr.length; i++) {
+                    temp.next = new Node(arr[i])
+                    temp = temp.next
+                }
+                return this.head
+            }
+        }
+        var removeDuplicateNodes = function (head) {
+            let t1 = head
+            let t2 = head
+            while (t1.next.next) {
+                while (t2.next) {
+                    if (t1.val == t2.next.val) {
+                        t2.next = t2.next.next
+                    }
+                        t2 = t2.next
+                }
+                t1 = t1.next
+                t2 = t1
+            }
+            let r = head
+            let arr = []
+            while (r) {
+                arr.push(r.val)
+                r = r.next
+            }
+            return arr
+        };
+        let head = new NodeList([1, 2, 3, 3, 2,1])
+        console.log(removeDuplicateNodes(head))
+    </script>
+</body>
+
+</html>

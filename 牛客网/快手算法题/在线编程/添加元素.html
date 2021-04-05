@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function prepend(arr, item) {
+            let arr1 = []
+            for (let i = 0; i < arr.length; i++) {
+                arr1.push(arr[i])
+            }
+            arr1.splice(0, 0, item)
+            return arr1
+        }
+        console.log(prepend([1, 2, 3, 4], 10))
+
+
+
+        //删除数组第一个元素
+        function curtail(arr) {
+            let arr1 = []
+            for (let i = 0; i < arr.length; i++) {
+                arr1.push(arr[i])
+            }
+            arr1.splice(0, 1)
+            return arr1
+        }
+        console.log(curtail([1, 2, 3, 4]))
+    </script>
+</body>
+
+</html>
