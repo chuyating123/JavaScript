@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function remove(arr, item) {
+            let newArr = []
+            for (let j = 0; j < arr.length; j++) {
+                newArr.push(arr[j])
+            }
+            for (let i = 0; i < newArr.length; i++) {
+                if (newArr[i] == item) {
+                    newArr.splice(i, 1)
+                    i--
+                }
+            }
+            return arr.length
+        }
+        console.log(remove([1, 2, 2, 3, 4, 2, 2], 2))
+    </script>
+</body>
+
+</html>
